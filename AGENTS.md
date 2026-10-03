@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep ASBAAB as a frontend-only static couture experience; cart state is in-memory and enquiries open WhatsApp because no backend is required.
