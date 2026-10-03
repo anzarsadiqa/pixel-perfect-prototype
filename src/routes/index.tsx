@@ -3,7 +3,7 @@ import { Instagram, Menu, MessageCircle, Search, ShoppingBag, X } from "lucide-r
 import { useState } from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/asbaab-logo.png.asset.json";
+import logoImage from "@/assets/asbaab-logo.svg";
 import heroImage from "@/assets/asbaab-hero.jpg";
 import ivoryImage from "@/assets/collection-ivory.jpg";
 import redImage from "@/assets/collection-red.jpg";
@@ -48,14 +48,14 @@ const products = [
   { name: "Aafreen Draped Gown", price: "₹1,35,000", image: gownImage },
 ];
 
-function BrandLogo({ light = false }: { light?: boolean }) {
+function BrandLogo() {
   return (
     <img
-      src={logoAsset.url}
+      src={logoImage}
       alt="ASBAAB by Madiha Farooq"
-      className={cn("h-12 w-auto object-contain mix-blend-multiply", light && "invert mix-blend-screen")}
-      width={125}
-      height={125}
+      className="h-12 w-[140px] object-contain"
+      width={700}
+      height={240}
     />
   );
 }
@@ -79,7 +79,7 @@ function Index() {
           <button className="justify-self-start text-primary-foreground lg:hidden" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
             <Menu size={22} strokeWidth={1.4} />
           </button>
-          <a href="#home" aria-label="ASBAAB home" className="justify-self-center"><BrandLogo light /></a>
+          <a href="#home" aria-label="ASBAAB home" className="justify-self-center"><BrandLogo /></a>
           <div className="flex items-center justify-self-end gap-4">
             <a href="#edit" aria-label="Search"><Search size={18} strokeWidth={1.4} /></a>
             <a href="https://instagram.com/asbaabofficial" target="_blank" rel="noreferrer" aria-label="Instagram" className="hidden sm:block"><Instagram size={18} strokeWidth={1.4} /></a>
@@ -94,7 +94,7 @@ function Index() {
 
       {menuOpen && (
         <div className="fixed inset-0 z-[60] bg-primary p-7 text-primary-foreground animate-fade-in">
-          <div className="flex items-center justify-between"><BrandLogo light /><button aria-label="Close menu" onClick={closeMenu}><X /></button></div>
+          <div className="flex items-center justify-between"><BrandLogo /><button aria-label="Close menu" onClick={closeMenu}><X /></button></div>
           <nav className="mt-20 flex flex-col gap-8 font-display text-4xl">
             {[['Home','home'],['Collections','collections'],['Bridal Couture','bridal'],['About','about']].map(([label, id]) => <a key={id} href={`#${id}`} onClick={closeMenu}>{label}</a>)}
           </nav>
@@ -164,7 +164,7 @@ function Index() {
 
       <section className="px-3 py-24 text-center sm:px-6 sm:py-32"><p className="section-kicker">Instagram</p><h2 className="mt-3 font-display text-4xl sm:text-5xl">Follow the ASBAAB Bride</h2><a href="https://instagram.com/asbaabofficial" target="_blank" rel="noreferrer" className="mt-3 inline-block text-xs uppercase tracking-[0.18em] text-muted-foreground">@asbaabofficial</a><div className="mx-auto mt-12 grid max-w-[1440px] grid-cols-3 gap-1 sm:grid-cols-6 sm:gap-2">{products.map((item) => <a key={item.name} href="https://instagram.com/asbaabofficial" target="_blank" rel="noreferrer" className="group aspect-square overflow-hidden"><img src={item.image} alt="ASBAAB bridal edit" loading="lazy" width={1024} height={1280} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></a>)}</div></section>
 
-      <footer className="bg-primary px-6 py-16 text-primary-foreground sm:px-10"><div className="mx-auto grid max-w-[1440px] gap-12 border-b border-primary-foreground/15 pb-14 sm:grid-cols-3"><div><BrandLogo light/><p className="mt-4 max-w-xs text-xs leading-6 text-primary-foreground/60">Bridal couture made with patience, artistry and a deep love for timeless craft.</p></div><div><p className="footer-title">Collections</p><div className="mt-5 flex flex-col gap-3 text-xs text-primary-foreground/65"><a href="#bridal">Bridal Couture</a><a href="#collections">Lehengas</a><a href="#collections">Gowns</a><a href="#collections">Anarkalis</a></div></div><div><p className="footer-title">Visit & Connect</p><div className="mt-5 flex flex-col gap-3 text-xs text-primary-foreground/65"><span>Mumbai, India</span><a href={whatsappUrl("Hello ASBAAB, I would like to enquire about your couture.")} target="_blank" rel="noreferrer">+91 98199 54540</a><a href="https://instagram.com/asbaabofficial" target="_blank" rel="noreferrer">Instagram · @asbaabofficial</a></div></div></div><div className="mx-auto flex max-w-[1440px] flex-col gap-3 pt-7 text-[0.58rem] uppercase tracking-[0.16em] text-primary-foreground/45 sm:flex-row sm:justify-between"><span>© 2026 ASBAAB by Madiha Farooq</span><span>Made in Mumbai</span></div></footer>
+      <footer className="bg-primary px-6 py-16 text-primary-foreground sm:px-10"><div className="mx-auto grid max-w-[1440px] gap-12 border-b border-primary-foreground/15 pb-14 sm:grid-cols-3"><div><BrandLogo/><p className="mt-4 max-w-xs text-xs leading-6 text-primary-foreground/60">Bridal couture made with patience, artistry and a deep love for timeless craft.</p></div><div><p className="footer-title">Collections</p><div className="mt-5 flex flex-col gap-3 text-xs text-primary-foreground/65"><a href="#bridal">Bridal Couture</a><a href="#collections">Lehengas</a><a href="#collections">Gowns</a><a href="#collections">Anarkalis</a></div></div><div><p className="footer-title">Visit & Connect</p><div className="mt-5 flex flex-col gap-3 text-xs text-primary-foreground/65"><span>Mumbai, India</span><a href={whatsappUrl("Hello ASBAAB, I would like to enquire about your couture.")} target="_blank" rel="noreferrer">+91 98199 54540</a><a href="https://instagram.com/asbaabofficial" target="_blank" rel="noreferrer">Instagram · @asbaabofficial</a></div></div></div><div className="mx-auto flex max-w-[1440px] flex-col gap-3 pt-7 text-[0.58rem] uppercase tracking-[0.16em] text-primary-foreground/45 sm:flex-row sm:justify-between"><span>© 2026 ASBAAB by Madiha Farooq</span><span>Made in Mumbai</span></div></footer>
 
       <a href={whatsappUrl("Hello ASBAAB, I would like to enquire about your bridal couture.")} target="_blank" rel="noreferrer" aria-label="Enquire on WhatsApp" className="fixed bottom-5 right-5 z-40 grid size-13 place-items-center rounded-full bg-whatsapp text-whatsapp-foreground shadow-luxury transition-transform hover:scale-105"><MessageCircle size={23} /></a>
     </main>
