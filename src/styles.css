@@ -19,6 +19,8 @@
  */
 
 @theme inline {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Cormorant Garamond", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -59,29 +61,35 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold-soft: var(--gold-soft);
+  --color-whatsapp: var(--whatsapp);
+  --color-whatsapp-foreground: var(--whatsapp-foreground);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --radius: 0rem;
+  --background: oklch(0.975 0.013 84);
+  --foreground: oklch(0.20 0.021 54);
+  --card: oklch(0.985 0.01 84);
+  --card-foreground: oklch(0.20 0.021 54);
+  --popover: oklch(0.985 0.01 84);
+  --popover-foreground: oklch(0.20 0.021 54);
+  --primary: oklch(0.19 0.023 46);
+  --primary-foreground: oklch(0.97 0.015 83);
+  --secondary: oklch(0.935 0.018 81);
+  --secondary-foreground: oklch(0.20 0.021 54);
+  --muted: oklch(0.91 0.02 80);
+  --muted-foreground: oklch(0.48 0.025 55);
+  --accent: oklch(0.62 0.095 76);
+  --accent-foreground: oklch(0.18 0.02 48);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.82 0.023 76);
+  --input: oklch(0.82 0.023 76);
+  --ring: oklch(0.62 0.095 76);
+  --gold-soft: oklch(0.77 0.09 79);
+  --whatsapp: oklch(0.63 0.16 149);
+  --whatsapp-foreground: oklch(0.99 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +148,53 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0;
+    margin: 0;
   }
+
+  html { scroll-behavior: smooth; }
+  a, button { cursor: pointer; }
+  ::selection { background: var(--accent); color: var(--accent-foreground); }
+}
+
+@utility nav-link {
+  font-size: 0.65rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.82;
+  transition: opacity 200ms ease;
+  &:hover { opacity: 1; }
+}
+
+@utility section-kicker {
+  font-size: 0.65rem;
+  line-height: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+}
+
+@utility footer-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.75rem;
+}
+
+@utility bg-hero-veil { background: oklch(0.16 0.018 50 / 45%); }
+@utility bg-hero-shade { background: linear-gradient(90deg, oklch(0.11 0.015 47 / 78%) 0%, oklch(0.11 0.015 47 / 34%) 48%, transparent 78%); }
+@utility bg-card-shade { background: linear-gradient(to top, oklch(0.11 0.015 47 / 65%) 0%, transparent 48%); }
+@utility bg-moment-shade { background: linear-gradient(90deg, oklch(0.11 0.015 47 / 12%) 0%, oklch(0.11 0.015 47 / 70%) 100%); }
+@utility shadow-luxury { box-shadow: 0 10px 35px oklch(0.15 0.02 50 / 24%); }
+
+@media (max-width: 640px) {
+  .bg-hero-shade { background: linear-gradient(to top, oklch(0.11 0.015 47 / 82%) 0%, transparent 70%); }
+  .bg-moment-shade { background: linear-gradient(to top, oklch(0.11 0.015 47 / 78%) 0%, transparent 75%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
